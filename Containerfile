@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi
+FROM registry.access.redhat.com/ubi8/python-38
 
 USER root
 
@@ -7,7 +7,7 @@ RUN dnf -y update \
  && dnf -y clean all && \
  rm -rf /var/cache/dnf
 
-COPY requirements.txt ./requirements.txt
-RUN pip3 install --no-cache-dir --user -r ./requirements.txt
+USER 1001
 
-USER 8888
+COPY requirements.txt ./requirements.txt
+RUN pip3 install --no-cache-dir -r ./requirements.txt
