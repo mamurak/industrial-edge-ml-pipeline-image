@@ -1,6 +1,5 @@
 pandas
 numpy
-matplotlib
 sklearn
 joblib
 boto3
