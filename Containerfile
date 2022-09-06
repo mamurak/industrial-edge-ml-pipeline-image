@@ -7,7 +7,7 @@ RUN dnf -y update \
  && dnf -y clean all && \
  rm -rf /var/cache/dnf
 
+USER 8888
+
 COPY requirements.txt ./requirements.txt
 RUN pip3 install -r ./requirements.txt
-
-USER 8888
