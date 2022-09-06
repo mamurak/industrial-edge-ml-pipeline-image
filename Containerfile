@@ -21,5 +21,8 @@ RUN dnf -y update \
 
 USER 1001
 
-COPY requirements.txt ./requirements.txt
-RUN pip3 install --no-cache-dir -r ./requirements.txt
+COPY Pipfile Pipfile.lock ./
+
+RUN pip install pipenv
+
+RUN pipenv install --system --deploy
