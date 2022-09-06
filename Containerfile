@@ -17,12 +17,12 @@ RUN dnf -y update \
  && chmod a+rx git \
  && mv git /usr/bin \
  && cd /opt \
- && rm -rf /tmp/*
+ && rm -rf /tmp/* \
+ && pip install --upgrade pip --no-cache-dir \
+ && pip install pipenv --no-cache-dir
 
 USER 1001
 
 COPY Pipfile Pipfile.lock ./
-
-RUN pip install pipenv
 
 RUN pipenv install --system --deploy
