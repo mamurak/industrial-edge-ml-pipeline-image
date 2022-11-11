@@ -5,7 +5,8 @@ USER root
 RUN dnf -y update \
  && dnf -y install python3-pip git \
  && dnf -y clean all \
- && rm -rf /var/cache/dnf
+ && rm -rf /var/cache/dnf \
+ && pip install pip==22.2.2 setuptools==65.3.0
 
 USER 1001
 
